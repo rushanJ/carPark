@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<title>Bus Eka</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    html,
+    body {
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+        color: White;
+        background: linear-gradient(55deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 85%);
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Raleway", sans-serif;
+        font-weight: bold;
+    }
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+    }
+    
+    .title {
+        color: grey;
+        font-size: 18px;
+    }
+    
+    button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
+    
+    a {
+        text-decoration: none;
+        font-size: 22px;
+        color: black;
+        background-image: linear-gradient(to right, DodgerBlue, #2cb5e8);
+    }
+    
+    button:hover,
+    a:hover {
+        opacity: 0.7;
+    }
+</style>
+
+<body class="w3-white">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+        <span class="w3-bar-item w3-right"></span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;  background: linear-gradient(55deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 85%);" id="mySidebar"><br>
+        <div class="w3-container w3-row w3-white" style=" background: linear-gradient(55deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 85%);">
+            <div class="w3-col s4 ">
+
+            </div>
+            <div class="w3-col s8 w3-bar">
+                <span>Welcome <strong></strong></span><br>
+
+            </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <h5>Dashboard</h5>
+        </div>
+        <div class="w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+            <a href="home.html" class="w3-bar-item w3-button w3-padding w3-white"><i class="fa fa-home fa-fw"></i>Dashboard</a>
+            <a href="searchBus.html" class="w3-bar-item w3-button w3-padding w3-white"><i class="fa fa-eye fa-fw"></i>Search Bus</a>
+            <a href="myBookings.html" class="w3-bar-item w3-button w3-padding w3-white"><i class="fa fa-eye fa-fw"></i>My Bookings</a>
+
+            <a href=" profile.html" class="w3-bar-item w3-button w3-padding w3-white"><i class="fa fa-eye fa-fw"></i>Profile</a>
+            <a href="index.html" class="w3-bar-item w3-button w3-padding w3-white"><i class="fa fa-arrow-left  fa-fw"></i>Log Out</a>
+
+        </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-dashboard"></i> Search Bus</b></h5>
+        </header>
+
+
+
+        <hr>
+
+
+        <div class="card ">
+
+            <div id="demo">
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <!-- End page content -->
+    </div>
+
+    <script>
+        var dasds = setInterval(loadDoc, 1000);
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar wi th the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+
+        function loadDoc() {
+            //alert("running");
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    
+                    document.getElementById("demo").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "php/parkingSlots.php", true);
+            xhttp.send();
+        }
+
+        function book(x) {
+
+            // $.post("php/bookSeat.php", function(id, status) {
+            //     alert("Data: " + id + "\nStatus: " + status);
+            // });
+
+            if (confirm("Confirm Your Booking For Seat no " + x)) {
+                $.post("php/parkingSlotBook.php", {
+                        id: x
+                            // success: "Duckburg"
+                    },
+                    function(response, status) {
+                        // alert(response);
+                        //console.log(response);
+                        if (response == 1)
+                            alert("Success");
+                        else
+                            alert("Error");
+                    });
+                alert("Booking In Process");
+
+            } else {
+                alert("Booking Cancelled");
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>
